@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;700&display=swap');
+
+body{
+    background-image: url("../images/low-poly-grid-haikei.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.btn-hamburguer{
+    position: absolute;
+    background-color: transparent;
+    border: 0;
+    color: #FFF;
+    .hamburguer{
+        font-size: 40px;
+    }
+}
+.side-bar{
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(10, 10, 10, 0.86);
+    top: 0;
+    z-index: -1;
+    
+    a{
+        font-family: 'Inter', sans-serif;
+        color: #FFF;
+        display: block;
+        min-width: 250px;
+        text-align: center;
+        text-decoration: none;
+        margin: 30px 0;
+    }    
+}
