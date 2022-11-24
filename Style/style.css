@@ -1,21 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap");
+* {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
 body {
   background-image: url("../images/low-poly-grid-haikei.svg");
   background-repeat: no-repeat;
   background-size: cover;
+  width: 100vw;
+  height: 100vh;
 }
 
 .btn-hamburguer {
-  position: absolute;
+  position: relative;
   background-color: transparent;
   border: 0;
   color: #FFF;
+  z-index: 7;
 }
 .btn-hamburguer .hamburguer {
   font-size: 40px;
+  position: absolute;
 }
 
 .side-bar {
+  font-family: "Inter", sans-serif;
   height: 100vh;
   position: absolute;
   display: flex;
@@ -24,14 +34,48 @@ body {
   flex-direction: column;
   background-color: rgba(10, 10, 10, 0.86);
   top: 0;
-  z-index: -1;
 }
 .side-bar a {
-  font-family: "Inter", sans-serif;
   color: #FFF;
   display: block;
   min-width: 250px;
   text-align: center;
   text-decoration: none;
   margin: 30px 0;
+}
+
+.card-login {
+  width: 30vw;
+  min-width: 300px;
+  background-color: #FFF;
+  border-radius: 21px;
+  box-shadow: 5px 5px 5px rgba(37, 37, 37, 0.6);
+  padding: 60px 50px;
+  text-align: center;
+  margin-top: 10%;
+}
+.card-login h1 {
+  font-weight: 600;
+}
+.card-login h4 {
+  font-weight: bold;
+  color: #757070;
+}
+.card-login .input-login {
+  background-color: #5f5f5f;
+  width: 100%;
+  color: #FFF;
+}
+.card-login .input-login:focus {
+  border: #252525;
+  box-shadow: 0 0 0 0.25rem rgba(37, 37, 37, 0.2509803922);
+}
+.card-login label {
+  color: rgba(255, 255, 255, 0.81);
+  font-weight: bold;
+}
+.card-login button {
+  width: 100%;
+  font-weight: bold;
+  font-size: 18px;
 }/*# sourceMappingURL=style.css.map */
