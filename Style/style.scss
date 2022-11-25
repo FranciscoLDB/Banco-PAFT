@@ -57,13 +57,23 @@ body{
         font-weight: bold;
         color: #757070;
     }
-    .input-login {
+    .input-login, .input-pag{
         background-color: #5f5f5f;
         width: 100%;
         color: #FFF;
         &:focus{
             border: #252525;
             box-shadow: 0 0 0 0.25rem #25252540;
+        }
+    }
+    select {
+        background-color: #D1D1D1;
+        width: 100%;
+        color: #252525;
+        border: #252525 solid 1px;
+        &:focus{
+            border: #000000;
+            box-shadow: 0 0 0 0.15rem #2525258a;
         }
     }
     label{
@@ -81,7 +91,11 @@ body{
     margin-top: auto;
     padding-top: 30px;
     padding-bottom: 30px;
+    .table-extrato{
+        margin-top: 16px;
+    }
 }
+
 
 .titulo-section{
     font-size: 32px;

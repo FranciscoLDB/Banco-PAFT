@@ -37,47 +37,28 @@
         </div>
     </section>
     <main class="container">
-        <h1 class="titulo-section">Extrato da conta</h1>
+        <h1 class="titulo-section">Pagar conta</h1>
         <section class="container card-section">
             <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                <option selected>Selecione um período</option>
-                <option value="1">Ultimo mes</option>
-                <option value="3">Ultimos tres meses</option>
-                <option value="6">Ultimos seis meses</option>
+                <option selected>Método de pagamento</option>
+                <option value="boleto">Boleto</option>
+                <option value="pix">Pix</option>
             </select>
-            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                <option selected>Tipo da movimentação</option>
-                <option value="entrada">Entrada</option>
-                <option value="saida">Saida</option>
-                <option value="tudo">Tudo</option>
-            </select>
-            <button type="button" class="btn btn-dark">Buscar</button>
-            <table class="table caption-top table-extrato">
-                <thead>
-                  <tr>
-                    <th scope="col">Data</th>
-                    <th scope="col">Movimentação</th>
-                    <th scope="col">Valor</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">02/08</th>
-                    <td>Saida</td>
-                    <td>-R$1.500,00</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">05/10</th>
-                    <td>Entrada</td>
-                    <td>R$2.500,00</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">20/11</th>
-                    <td>Saida</td>
-                    <td>-R$500,00</td>
-                  </tr>
-                </tbody>
-            </table>
+            <form>
+                <div class="form-floating mb-2">
+                    <input type="text" class="form-control input-pag" name="codigoB" id="floatingInput" placeholder="Codigo de barras">
+                    <label for="floatingInput">Codigo de barras</label>
+                </div>
+                <div class="form-floating mb-2">
+                    <input type="text" class="form-control input-pag" name="chavePix" id="floatingPassword" placeholder="Chave pix">
+                    <label for="floatingPassword">Chave pix</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control input-pag" name="valor" id="floatingPassword" placeholder="Valor">
+                    <label for="floatingPassword">Valor</label>
+                </div>
+                <button type="button" class="btn btn-dark">Pagar</button>
+            </form>
         </section>
     </main>
 
