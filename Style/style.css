@@ -45,8 +45,10 @@ body {
 }
 
 .card-login, .card-section {
-  width: 30vw;
-  min-width: 330px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  min-width: 30vw;
   background-color: #FFF;
   border-radius: 21px;
   box-shadow: 5px 5px 5px rgba(37, 37, 37, 0.6);
@@ -63,7 +65,6 @@ body {
 }
 .card-login .input-login, .card-login .input-pag, .card-section .input-login, .card-section .input-pag {
   background-color: #5f5f5f;
-  width: 100%;
   color: #FFF;
 }
 .card-login .input-login:focus, .card-login .input-pag:focus, .card-section .input-login:focus, .card-section .input-pag:focus {
@@ -72,9 +73,9 @@ body {
 }
 .card-login select, .card-section select {
   background-color: #D1D1D1;
-  width: 100%;
   color: #252525;
   border: #252525 solid 1px;
+  margin-right: 10px;
 }
 .card-login select:focus, .card-section select:focus {
   border: #000000;
@@ -85,7 +86,6 @@ body {
   font-weight: bold;
 }
 .card-login button, .card-section button {
-  width: 100%;
   font-weight: bold;
   font-size: 18px;
 }

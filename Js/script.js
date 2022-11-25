@@ -1,9 +1,10 @@
-var hamburger = document.querySelector(".hamburger");
+window.addEventListener('resize', atualizar);
 
-// On click
-hamburger.addEventListener("click", function() {
-    // Toggle class "is-active"
-    hamburger.classList.toggle("is-active");
-    // Do something else, like open/close menu
+function atualizar() {
+    var largura = window.screen.width;
+    if (largura >= 1040) {
+        
+    } else {
 
-});
+    }
+};

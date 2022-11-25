@@ -42,8 +42,8 @@ body{
     }    
 }
 .card-login, .card-section{
-    width: 30vw;
-    min-width: 330px;
+    width: max-content;
+    min-width: 30vw;
     background-color: #FFF;
     border-radius: 21px;
     box-shadow: 5px 5px 5px rgba(37, 37, 37, 0.6);
@@ -59,7 +59,6 @@ body{
     }
     .input-login, .input-pag{
         background-color: #5f5f5f;
-        width: 100%;
         color: #FFF;
         &:focus{
             border: #252525;
@@ -68,9 +67,9 @@ body{
     }
     select {
         background-color: #D1D1D1;
-        width: 100%;
         color: #252525;
         border: #252525 solid 1px;
+        margin-right: 10px;
         &:focus{
             border: #000000;
             box-shadow: 0 0 0 0.15rem #2525258a;
@@ -81,7 +80,7 @@ body{
         font-weight: bold;
     }
     button{
-        width: 100%;
+        //width: 100%;
         font-weight: bold;
         font-size: 18px;
     }
