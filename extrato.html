@@ -36,7 +36,7 @@
             </a>
         </div>
     </section>
-    <main class="container">
+    <main class="container-xl">
         <h1 class="titulo-section">Extrato da conta</h1>
         <section class="container card-section">
             <div class="row">
@@ -51,10 +51,10 @@
                     <option value="saida">Saida</option>
                     <option selected value="tudo">Tudo</option>
                 </select>
-                <button type="button" class="btn btn-dark col-lg-3 mb-2">Buscar</button>
+                <button type="button" class="btn btn-dark col-lg-3 mb-2" onclick="mostrar_extrato()">Buscar</button>
             </div>
 
-            <table class="table caption-top table-extrato">
+            <table class="table caption-top" id="table-extrato">
                 <thead>
                   <tr>
                     <th scope="col">Data</th>
@@ -63,21 +63,6 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>02/08</td>
-                    <td>Saida</td>
-                    <td>-R$1.500,00</td>
-                  </tr>
-                  <tr>
-                    <td>05/10</td>
-                    <td>Entrada</td>
-                    <td>R$2.500,00</td>
-                  </tr>
-                  <tr>
-                    <td>20/11</td>
-                    <td>Saida</td>
-                    <td>-R$500,00</td>
-                  </tr>
                 </tbody>
             </table>
         </section>

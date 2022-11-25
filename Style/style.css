@@ -95,7 +95,7 @@ body {
   padding-top: 30px;
   padding-bottom: 30px;
 }
-.card-section .table-extrato {
+.card-section #table-extrato {
   margin-top: 16px;
 }
 
