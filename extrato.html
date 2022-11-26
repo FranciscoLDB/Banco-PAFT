@@ -39,21 +39,27 @@
     <main class="container-xl">
         <h1 class="titulo-section">Extrato da conta</h1>
         <section class="container card-section">
-            <div class="row">
-                <select class="form-select-lg mb-2 col-lg-5" aria-label=".form-select-lg example">
-                    <option selected>Período</option>
-                    <option value="1">Ultimo mes</option>
-                    <option value="3">Ultimos tres meses</option>
-                    <option value="6">Ultimos seis meses</option>
-                </select>
-                <select class="form-select-lg mb-2 col-lg-3" aria-label=".form-select-lg example">
-                    <option value="entrada">Entrada</option>
-                    <option value="saida">Saida</option>
-                    <option selected value="tudo">Tudo</option>
-                </select>
-                <button type="button" class="btn btn-dark col-lg-3 mb-2" onclick="mostrar_extrato()">Buscar</button>
-            </div>
+            <div class="row select-extrato">
+                <div class="col-lg-5">
+                    <select class="form-select-lg mb-2 col-12" aria-label=".form-select-lg example">
+                        <option selected>Período</option>
+                        <option value="1">Ultimo mes</option>
+                        <option value="3">Ultimos tres meses</option>
+                        <option value="6">Ultimos seis meses</option>
+                    </select>
+                </div>
+                <div class="col-lg-3">
+                    <select class="form-select-lg mb-2 col-12" aria-label=".form-select-lg example">
+                        <option value="entrada">Entrada</option>
+                        <option value="saida">Saida</option>
+                        <option selected value="tudo">Tudo</option>
+                    </select>
+                </div>
+                <div class="col-lg-4">
+                    <button type="button" class="btn btn-dark col-12 mb-2" onclick="mostrar_extrato()">Buscar</button>
 
+                </div>                
+            </div>
             <table class="table caption-top" id="table-extrato">
                 <thead>
                   <tr>

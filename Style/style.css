@@ -75,7 +75,6 @@ body {
   background-color: #D1D1D1;
   color: #252525;
   border: #252525 solid 1px;
-  margin-right: 10px;
 }
 .card-login select:focus, .card-section select:focus {
   border: #000000;
@@ -86,6 +85,8 @@ body {
   font-weight: bold;
 }
 .card-login button, .card-section button {
+  width: 100%;
+  height: 45px;
   font-weight: bold;
   font-size: 18px;
 }
@@ -97,6 +98,27 @@ body {
 }
 .card-section #table-extrato {
   margin-top: 16px;
+}
+.card-section #table-extrato th {
+  background-color: #2590F0;
+  color: #FFF;
+  border: 0;
+}
+.card-section #table-extrato td {
+  border: 0;
+  max-width: 20%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card-section .select-extrato {
+  margin: auto;
+}
+.card-section .select-extrato > div {
+  padding-inline: 2px;
+}
+.card-section tbody {
+  vertical-align: middle;
 }
 
 .titulo-section {

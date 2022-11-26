@@ -1,14 +1,16 @@
+
+
 const extrato = [
     {
         data: "16/06",
         mov: "Saida",
-        descricao: "Lojas Americanas",
+        descricao: "Casas Bahia",
         valor: 500
     },
     {
         data: "02/10",
         mov: "Entrada",
-        descricao: "Lojas Americanas",
+        descricao: "Joao Carlos",
         valor: 1500
     },
     {
@@ -26,8 +28,8 @@ const extrato = [
     {
         data: "10/11",
         mov: "Saida",
-        descricao: "Lojas Americanas",
-        valor: 1500
+        descricao: "Nuuvem",
+        valor: 350
     },
     {
         data: "22/11",
@@ -36,8 +38,11 @@ const extrato = [
         valor: 1500
     }
 ]
+
 let tableHead = document.querySelector('thead');
 let tableBody = document.querySelector('tbody');
+let tbodyMaior = '';
+let tbodyMenor = '';
 
 function mostrar_extrato(){
     var largura = window.screen.width;
@@ -82,8 +87,6 @@ function mostrar_extrato(){
 window.addEventListener('resize', atualizar);
 window.addEventListener('load', atualizar);
 
-let tbodyMaior = '';
-let tbodyMenor = '';
 function atualizar() {
     var largura = window.screen.width;
     
