@@ -45,10 +45,10 @@ body {
 }
 
 .card-login, .card-section {
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  min-width: 30vw;
+  width: 40vw;
+  min-width: -webkit-min-content;
+  min-width: -moz-min-content;
+  min-width: min-content;
   background-color: #FFF;
   border-radius: 21px;
   box-shadow: 5px 5px 5px rgba(37, 37, 37, 0.6);

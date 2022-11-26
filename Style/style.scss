@@ -42,8 +42,8 @@ body{
     }    
 }
 .card-login, .card-section{
-    width: max-content;
-    min-width: 30vw;
+    width: 40vw;
+    min-width: min-content;
     background-color: #FFF;
     border-radius: 21px;
     box-shadow: 5px 5px 5px rgba(37, 37, 37, 0.6);
