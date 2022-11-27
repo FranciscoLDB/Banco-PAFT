@@ -105,6 +105,8 @@ body {
   border: 0;
 }
 .card-section #table-extrato td {
+  background-color: #d3ece6;
+  font-weight: bold;
   border: 0;
   max-width: 20%;
   white-space: nowrap;
