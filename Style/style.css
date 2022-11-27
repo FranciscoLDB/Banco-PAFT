@@ -10,14 +10,17 @@ body {
   background-size: cover;
   width: 100vw;
   height: 100vh;
+  position: relative;
 }
 
 .btn-hamburguer {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   background-color: transparent;
   border: 0;
   color: #FFF;
-  z-index: 7;
+  z-index: 1;
 }
 .btn-hamburguer .hamburguer {
   font-size: 40px;
@@ -50,11 +53,10 @@ body {
   min-width: -moz-min-content;
   min-width: min-content;
   background-color: #FFF;
-  border-radius: 21px;
+  border-radius: 0.5rem;
   box-shadow: 5px 5px 5px rgba(37, 37, 37, 0.6);
   padding: 60px 50px;
   text-align: center;
-  margin-top: 10%;
 }
 .card-login h1, .card-section h1 {
   font-weight: 600;
@@ -66,10 +68,18 @@ body {
 .card-login .input-login, .card-login .input-pag, .card-section .input-login, .card-section .input-pag {
   background-color: #5f5f5f;
   color: #FFF;
+  height: 48px;
+  border-color: #2c2c2c;
 }
 .card-login .input-login:focus, .card-login .input-pag:focus, .card-section .input-login:focus, .card-section .input-pag:focus {
   border: #252525;
   box-shadow: 0 0 0 0.25rem rgba(37, 37, 37, 0.2509803922);
+}
+.card-login label, .card-section label {
+  padding: 10px;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.81);
+  font-weight: bold;
 }
 .card-login select, .card-section select {
   background-color: #D1D1D1;
@@ -79,10 +89,6 @@ body {
 .card-login select:focus, .card-section select:focus {
   border: #000000;
   box-shadow: 0 0 0 0.15rem rgba(37, 37, 37, 0.5411764706);
-}
-.card-login label, .card-section label {
-  color: rgba(255, 255, 255, 0.81);
-  font-weight: bold;
 }
 .card-login button, .card-section button {
   width: 100%;
@@ -95,6 +101,7 @@ body {
   margin-top: auto;
   padding-top: 30px;
   padding-bottom: 30px;
+  text-align: left;
 }
 .card-section #table-extrato {
   margin-top: 16px;
@@ -122,11 +129,55 @@ body {
 .card-section tbody {
   vertical-align: middle;
 }
+.card-section hr {
+  width: 102%;
+  transform: translateX(-1%);
+  opacity: 1;
+  border-top: 1px solid #252525;
+  margin-bottom: 10px;
+}
+.card-section .detalhes-pagamento {
+  font-size: 20px;
+  white-space: nowrap;
+}
+.card-section .detalhes-pagamento h2 {
+  font-weight: bold;
+}
+.card-section .detalhes-pagamento p {
+  margin-bottom: 0px;
+}
+.card-section .detalhes-pagamento p strong {
+  font-weight: bolder;
+}
+.card-section .detalhes-pagamento :nth-child(5) {
+  margin-bottom: 12px;
+}
+.card-section .detalhes-pagamento span {
+  color: #6B6B6B;
+}
+.card-section .confirma-pagamento {
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+.card-section .confirma-pagamento span {
+  font-size: 1rem;
+}
+.card-section .confirma-pagamento p {
+  font-size: 1.5rem;
+}
+
+.inputs-pagamentos select {
+  height: 48px;
+}
+.inputs-pagamentos > div {
+  padding-inline: 5px;
+  min-width: 150px;
+}
 
 .titulo-section {
   font-size: 32px;
   color: #FFF;
   -webkit-text-stroke: 1px rgba(37, 37, 37, 0.4941176471);
   text-align: center;
-  margin-top: 8%;
 }/*# sourceMappingURL=style.css.map */

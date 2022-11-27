@@ -80,7 +80,7 @@ let mostrar_extrato = function (conta){
                 row.style.color = '#f9220e';
             }else{
                 //row.style.backgroundColor = '#77ab5966';
-                row.style.color = '#108d10';
+                row.style.color = '#279500';
             }
             valor.innerHTML += `R$${conta.extrato[i].valor.toFixed(2)}`;
 
