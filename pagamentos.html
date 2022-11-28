@@ -18,16 +18,15 @@
         <section class="container card-section">
             <div class="row inputs-pagamentos">
                 <div class="col-lg-6">
-                    <select class="form-select form-select-lg mb-2" aria-label=".form-select-lg example">
-                        <option selected>Método de pagamento</option>
+                    <select class="form-select form-select-lg mb-2" id="select-pagamento" aria-label=".form-select-lg example">
                         <option value="boleto">Boleto</option>
-                        <option value="pix">Pix</option>
+                        <option value="pix" selected>Pix</option>
                     </select>
                 </div>
                 <div class="col-lg-6">
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control input-pag" name="codigoB" id="floatingInput" placeholder="Chave" required>
-                        <label for="floatingInput">Chave pix</label>
+                        <input type="text" class="form-control input-pag input-chave" name="codigoB" id="floatingInput" placeholder="Chave" required>
+                        <label for="floatingInput" id="label-chave">Chave pix</label>
                     </div>
                 </div>
                 <div class="col-lg-6">

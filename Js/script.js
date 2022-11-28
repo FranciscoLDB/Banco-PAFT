@@ -42,7 +42,6 @@ class Conta{
             valor: 1500
         }
     ];
-
     constructor(nome = '', saldo = 0, banco = ''){
         this.nome = nome;
         this.#saldo = saldo;
@@ -58,7 +57,13 @@ class Conta{
 }
 const contaChico = new Conta('Chico', 2500, 'NuBank');
 const contaJorge = new Conta('Jorge', 1200, 'Inter');
-contaJorge.pix = 50505050;
+const chavesPix = {
+};
+contaChico.pix = 10101010;
+chavesPix[10101010] = contaChico;
+contaJorge.pix = 12345678;
+chavesPix[12345678] = contaJorge;
+console.log(chavesPix);
 
 let tableHead = document.querySelector('thead');
 let tableBody = document.querySelector('tbody');
@@ -114,17 +119,32 @@ if(!(btnExtrato == null)){
 
 let detalhesPagamento = document.getElementById('detalhes-pagamento');
 let confirmaPagamento = document.getElementById('confirma-pagamento');
+let selectPagamento = document.getElementById('select-pagamento');
+let labelChave = document.getElementById('label-chave');
 
-let mostrar_pagamento = function(recebedor){
-    return function(){
-        let valor = document.querySelector('.input-valor');
-        
-        detalhesPagamento.innerHTML =    
+selectPagamento.addEventListener('change', () => {
+    if(selectPagamento.value == 'boleto'){
+        labelChave.innerHTML = 'Codigo de barras';
+    } else {
+        labelChave.innerHTML = 'Chave pix';
+    }
+    detalhesPagamento.innerHTML = `
+    <div class="col-12">
+        <button type="button" class="btn btn-dark" id="btn-pagar" >Proseguir</button>
+    </div>`;
+    document.getElementById('btn-pagar').addEventListener('click', mostrar_pagamento);
+});
+
+async function mostrar_pagamento(){
+    let valor = document.querySelector('.input-valor');
+    let chave = document.querySelector('.input-chave');
+    let recebedor = await chavesPix[chave.value];
+
+    detalhesPagamento.innerHTML =    
         `<h2>Detalhes do pagamento</h2>
         <p><strong>Recebedor</strong> <span>${recebedor.nome}</span></p>
         <p><strong>Banco</strong> <span>${recebedor.banco}</span></p>
         <p><strong>Agencia</strong> <span>${recebedor.agencia}</span></p>
-        <p><strong>Descricao</strong> <span>Eletrodomesticos LET</span></p>
         <div class="row confirma-pagamento">
         <div class="col-6">
         <span>Total a pagar</span>
@@ -134,7 +154,6 @@ let mostrar_pagamento = function(recebedor){
         <button type="button" class="btn btn-dark" id="btn-pagar">Pagar</button>
         </div>
         </div>`;
-    }
 }
     
 let pagar = function(){
@@ -144,15 +163,13 @@ let pagar = function(){
 }
 
 let btnPagar = document.getElementById('btn-pagar');
-btnPagar.addEventListener('click', mostrar_pagamento(contaJorge));
-
+btnPagar.addEventListener('click', mostrar_pagamento);
 
 window.addEventListener('resize', atualizar);
 window.addEventListener('load', atualizar);
 
 function atualizar() {
-    var largura = window.screen.width;
-    
+    var largura = window.screen.width;    
     if (largura >= 992) {
         if(!(btnExtrato == null)){   
             tableHead.innerHTML = 
