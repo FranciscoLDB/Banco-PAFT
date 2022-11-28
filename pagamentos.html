@@ -26,37 +26,25 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control input-pag" name="codigoB" id="floatingInput" placeholder="Chave">
+                        <input type="text" class="form-control input-pag" name="codigoB" id="floatingInput" placeholder="Chave" required>
                         <label for="floatingInput">Chave pix</label>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="form-floating">
-                        <input type="text" class="form-control input-pag" name="valor" id="floatingPassword" placeholder="Valor">
-                        <label for="floatingPassword">Valor</label>
+                        <input type="number" class="form-control input-pag input-valor" name="valor" id="floatingInput" placeholder="Valor" required>
+                        <label for="floatingInput">Valor</label>
                     </div>
                 </div>
             </div>
             <hr>
-            <div class="detalhes-pagamento">
-                <h2>Detalhes do pagamento</h2>
-                <p><strong>Recebedor</strong> <span>Fulano de tal</span></p>
-                <p><strong>Banco</strong> <span>INUSA</span></p>
-                <p><strong>Agencia</strong> <span>841539</span></p>
-                <p><strong>Descricao</strong> <span>Eletrodomesticos LET</span></p>
-                <div class="row confirma-pagamento">
-                    <div class="col-6">
-                        <span>Total a pagar</span>
-                        <p>R$1500,00</p>
-                    </div>
-                    <div class="col-6">
-                        <button type="button" class="btn btn-dark">Pagar</button>
-                    </div>
+            <div id="detalhes-pagamento">
+                <div class="col-12">
+                    <button type="button" class="btn btn-dark" id="btn-pagar">Proseguir</button>
                 </div>
             </div>
         </section>
     </main>
-    
     <button class="btn-hamburguer" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
         <span class="hamburguer material-symbols-outlined">menu</span>
     </button>

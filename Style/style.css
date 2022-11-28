@@ -136,23 +136,26 @@ body {
   border-top: 1px solid #252525;
   margin-bottom: 10px;
 }
-.card-section .detalhes-pagamento {
+.card-section #detalhes-pagamento {
   font-size: 20px;
   white-space: nowrap;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.card-section .detalhes-pagamento h2 {
+.card-section #detalhes-pagamento h2 {
   font-weight: bold;
 }
-.card-section .detalhes-pagamento p {
+.card-section #detalhes-pagamento p {
   margin-bottom: 0px;
 }
-.card-section .detalhes-pagamento p strong {
+.card-section #detalhes-pagamento p strong {
   font-weight: bolder;
 }
-.card-section .detalhes-pagamento :nth-child(5) {
+.card-section #detalhes-pagamento :nth-child(5) {
   margin-bottom: 12px;
 }
-.card-section .detalhes-pagamento span {
+.card-section #detalhes-pagamento span {
   color: #6B6B6B;
 }
 .card-section .confirma-pagamento {

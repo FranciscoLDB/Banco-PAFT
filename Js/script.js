@@ -1,6 +1,9 @@
 class Conta{
     nome;
     #saldo;
+    banco;
+    agencia;
+    pix;
     extrato = [
         {
             data: "16/06",
@@ -40,9 +43,11 @@ class Conta{
         }
     ];
 
-    constructor(nome = '', saldo = 0){
+    constructor(nome = '', saldo = 0, banco = ''){
         this.nome = nome;
         this.#saldo = saldo;
+        this.banco = banco;
+        this.agencia = (Math.random()*(999999 - 100000) + 100000).toFixed(0);
     }
     get saldo(){
         return this.#saldo;
@@ -51,7 +56,9 @@ class Conta{
         this.#saldo = saldo;
     }
 }
-const contaChico = new Conta('Chico', 2500);
+const contaChico = new Conta('Chico', 2500, 'NuBank');
+const contaJorge = new Conta('Jorge', 1200, 'Inter');
+contaJorge.pix = 50505050;
 
 let tableHead = document.querySelector('thead');
 let tableBody = document.querySelector('tbody');
@@ -100,9 +107,45 @@ let mostrar_extrato = function (conta){
         atualizar();
     }
 }
-
 let btnExtrato = document.getElementById('btn-extrato');
-btnExtrato.addEventListener('click', mostrar_extrato(contaChico));
+if(!(btnExtrato == null)){
+    btnExtrato.addEventListener('click', mostrar_extrato(contaChico));
+}
+
+let detalhesPagamento = document.getElementById('detalhes-pagamento');
+let confirmaPagamento = document.getElementById('confirma-pagamento');
+
+let mostrar_pagamento = function(recebedor){
+    return function(){
+        let valor = document.querySelector('.input-valor');
+        
+        detalhesPagamento.innerHTML =    
+        `<h2>Detalhes do pagamento</h2>
+        <p><strong>Recebedor</strong> <span>${recebedor.nome}</span></p>
+        <p><strong>Banco</strong> <span>${recebedor.banco}</span></p>
+        <p><strong>Agencia</strong> <span>${recebedor.agencia}</span></p>
+        <p><strong>Descricao</strong> <span>Eletrodomesticos LET</span></p>
+        <div class="row confirma-pagamento">
+        <div class="col-6">
+        <span>Total a pagar</span>
+        <p>R$${valor.value},00</p>
+        </div>
+        <div class="col-6">
+        <button type="button" class="btn btn-dark" id="btn-pagar">Pagar</button>
+        </div>
+        </div>`;
+    }
+}
+    
+let pagar = function(){
+    return function(){
+
+    }
+}
+
+let btnPagar = document.getElementById('btn-pagar');
+btnPagar.addEventListener('click', mostrar_pagamento(contaJorge));
+
 
 window.addEventListener('resize', atualizar);
 window.addEventListener('load', atualizar);
@@ -111,21 +154,25 @@ function atualizar() {
     var largura = window.screen.width;
     
     if (largura >= 992) {
-        tableHead.innerHTML = 
-        `<tr>
-        <th scope="col">Data</th>
-        <th scope="col">Movimentação</th>
-        <th scope="col">Descrição</th>
-        <th scope="col">Valor</th>
-        </tr>`;
-        tableBody.innerHTML = tbodyMaior;
+        if(!(btnExtrato == null)){   
+            tableHead.innerHTML = 
+            `<tr>
+            <th scope="col">Data</th>
+            <th scope="col">Movimentação</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Valor</th>
+            </tr>`;
+            tableBody.innerHTML = tbodyMaior;
+        }
     } else {
-        tableHead.innerHTML = 
-        `<tr>
-        <th scope="col">Data</th>
-        <th scope="col">Movimentação</th>
-        <th scope="col">Valor</th>
-        </tr>`;
-        tableBody.innerHTML = tbodyMenor;
+        if(!(btnExtrato == null)){
+            tableHead.innerHTML = 
+            `<tr>
+            <th scope="col">Data</th>
+            <th scope="col">Movimentação</th>
+            <th scope="col">Valor</th>
+            </tr>`;
+            tableBody.innerHTML = tbodyMenor;
+        }
     }
 };

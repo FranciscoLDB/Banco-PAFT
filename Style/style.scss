@@ -129,9 +129,12 @@ body{
         border-top: 1px solid #252525;
         margin-bottom: 10px;
     } 
-    .detalhes-pagamento{
+    #detalhes-pagamento{
         font-size: 20px;
         white-space: nowrap;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         h2{
             font-weight: bold;
         }
