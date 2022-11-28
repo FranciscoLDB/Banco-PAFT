@@ -121,6 +121,8 @@ let detalhesPagamento = document.getElementById('detalhes-pagamento');
 let confirmaPagamento = document.getElementById('confirma-pagamento');
 let selectPagamento = document.getElementById('select-pagamento');
 let labelChave = document.getElementById('label-chave');
+let valor = document.querySelector('.input-valor');
+let chave = document.querySelector('.input-chave');
 
 selectPagamento.addEventListener('change', () => {
     if(selectPagamento.value == 'boleto'){
@@ -128,32 +130,46 @@ selectPagamento.addEventListener('change', () => {
     } else {
         labelChave.innerHTML = 'Chave pix';
     }
+    reset_pagamento();
+});
+
+function reset_pagamento(){
     detalhesPagamento.innerHTML = `
     <div class="col-12">
         <button type="button" class="btn btn-dark" id="btn-pagar" >Proseguir</button>
     </div>`;
     document.getElementById('btn-pagar').addEventListener('click', mostrar_pagamento);
-});
+}
+chave.addEventListener('change', reset_pagamento);
 
-async function mostrar_pagamento(){
-    let valor = document.querySelector('.input-valor');
-    let chave = document.querySelector('.input-chave');
-    let recebedor = await chavesPix[chave.value];
-
-    detalhesPagamento.innerHTML =    
-        `<h2>Detalhes do pagamento</h2>
-        <p><strong>Recebedor</strong> <span>${recebedor.nome}</span></p>
-        <p><strong>Banco</strong> <span>${recebedor.banco}</span></p>
-        <p><strong>Agencia</strong> <span>${recebedor.agencia}</span></p>
-        <div class="row confirma-pagamento">
-        <div class="col-6">
-        <span>Total a pagar</span>
-        <p>R$${valor.value},00</p>
-        </div>
-        <div class="col-6">
-        <button type="button" class="btn btn-dark" id="btn-pagar">Pagar</button>
-        </div>
-        </div>`;
+async function mostrar_pagamento(){    
+    let recebedor = await chavesPix[chave.value];    
+    try{
+        detalhesPagamento.innerHTML =    
+            `<h2>Detalhes do pagamento</h2>
+            <p><strong>Recebedor</strong> <span>${recebedor.nome}</span></p>
+            <p><strong>Banco</strong> <span>${recebedor.banco}</span></p>
+            <p><strong>Agencia</strong> <span>${recebedor.agencia}</span></p>
+            <div class="row confirma-pagamento">
+            <div class="col-6">
+            <span>Total a pagar</span>
+            <p>R$${valor.value},00</p>
+            </div>
+            <div class="col-6">
+            <button type="button" class="btn btn-dark" id="btn-pagar">Pagar</button>
+            </div>
+            </div>`;
+    } catch {
+        detalhesPagamento.innerHTML =    
+            `<h2>Houve um erro</h2>
+            <p><strong>Chave pix ${chave.value} nao localizada</strong></p>
+            </div>
+            <div class="col-12">
+            <button type="button" class="btn btn-dark" id="btn-pagar">Pagar</button>
+            </div>
+            </div>`;
+            document.getElementById('btn-pagar').addEventListener('click', mostrar_pagamento);
+    }
 }
     
 let pagar = function(){
