@@ -226,7 +226,7 @@ async function init_emprestimo(){
             let valorP = slider.value * (Math.pow((1+jurosM),numP)*jurosM)/(Math.pow((1+jurosM),numP)-1);
             valorP = valorP.toFixed(2);
             valorP.toString().replace('.', ',');
-            resumoParcelas.innerHTML = `${numP} de R$${valorP.toString().replace('.', ',')}`;
+            resumoParcelas.innerHTML = `${numP}x de R$${valorP.toString().replace('.', ',')}`;
             totalAPagar.innerHTML = `R$${((numP*valorP).toFixed(2)).toString().replace('.', ',')}`;
         });
     } catch (e) {
