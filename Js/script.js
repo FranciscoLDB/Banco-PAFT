@@ -68,15 +68,15 @@ console.log(chavesPix);
 let tableHead = document.querySelector('thead');
 let tableBody = document.querySelector('tbody');
 let theadMaior = `<tr>
-    <th scope="col">Data</th>
-    <th scope="col">Movimentação</th>
-    <th scope="col">Descrição</th>
-    <th scope="col">Valor</th>
+    <th scope="col class="col-3">Data</th>
+    <th scope="col" class="col-3">Movimentação</th>
+    <th scope="col" class="col-3">Descrição</th>
+    <th scope="col" class="col-3">Valor</th>
     </tr>`;
 let theadMenor = `<tr>
-    <th scope="col">Data</th>
-    <th scope="col">Movimentação</th>
-    <th scope="col">Valor</th>
+    <th scope="col" class="col-3">Data</th>
+    <th scope="col" class="col-6">Movimentação</th>
+    <th scope="col" class="col-3">Valor</th>
     </tr>`;
 let tbodyMaior = '';
 let tbodyMenor = '';
@@ -199,35 +199,39 @@ async function init_emprestimo(){
     let totalAPagar = document.querySelector('#total-a-pagar');
     let btnSolicitarEmp = document.querySelector('#btn-sol-emprestimo');
 
-    for (let i = 1; i < 12; i++) {
-        let opt = document.createElement('option');
-        opt.value = i;
-        opt.id = i;
-        opt.text = i + 'x';
-        selectEmp.appendChild(opt);
-    }
-    for (let i = 1; i < 4; i++) {
-        let opt = document.createElement('option');
-        opt.value = i * 12;
-        opt.id = i*12;
-        opt.text = (i*12) + 'x';
-        selectEmp.appendChild(opt);
-    }
-    slider.value = 2500;
+    try{
+        for (let i = 1; i < 12; i++) {
+            let opt = document.createElement('option');
+            opt.value = i;
+            opt.id = i;
+            opt.text = i + 'x';
+            selectEmp.appendChild(opt);
+        }
+        for (let i = 1; i < 4; i++) {
+            let opt = document.createElement('option');
+            opt.value = i * 12;
+            opt.id = i*12;
+            opt.text = (i*12) + 'x';
+            selectEmp.appendChild(opt);
+        }
+        slider.value = 2500;
+        
+        slider.addEventListener('input', () => {
+            valorDesejado.innerHTML = `R$${slider.value},00`;
+        });
     
-    slider.addEventListener('input', () => {
-        valorDesejado.innerHTML = `R$${slider.value},00`;
-    });
-
-    btnSimularEmp.addEventListener('click', () => {
-        let numP = selectEmp.value;
-        let jurosM = (6.25**(1/12))-1;
-        let valorP = slider.value * (Math.pow((1+jurosM),numP)*jurosM)/(Math.pow((1+jurosM),numP)-1);
-        valorP = valorP.toFixed(2);
-        valorP.toString().replace('.', ',');
-        resumoParcelas.innerHTML = `${numP} de R$${valorP.toString().replace('.', ',')}`;
-        totalAPagar.innerHTML = `R$${((numP*valorP).toFixed(2)).toString().replace('.', ',')}`;
-    });
+        btnSimularEmp.addEventListener('click', () => {
+            let numP = selectEmp.value;
+            let jurosM = (6.25**(1/12))-1;
+            let valorP = slider.value * (Math.pow((1+jurosM),numP)*jurosM)/(Math.pow((1+jurosM),numP)-1);
+            valorP = valorP.toFixed(2);
+            valorP.toString().replace('.', ',');
+            resumoParcelas.innerHTML = `${numP} de R$${valorP.toString().replace('.', ',')}`;
+            totalAPagar.innerHTML = `R$${((numP*valorP).toFixed(2)).toString().replace('.', ',')}`;
+        });
+    } catch (e) {
+        console.log('Erro ao inicializar pagamento ' + e);
+    }
 
 }
 init_emprestimo();
