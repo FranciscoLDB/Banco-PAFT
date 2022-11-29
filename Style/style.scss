@@ -12,11 +12,6 @@ body{
     height: 100vh;
     position: relative;
 }
-main{
-    h1{
-        padding-top: 10%;
-    }
-}
 .btn-hamburguer{
     position: absolute;
     top: 0;
@@ -55,7 +50,7 @@ main{
     background-color: #FFF;
     border-radius: 0.5rem;
     box-shadow: 5px 5px 5px rgba(37, 37, 37, 0.6);
-    padding: 60px 50px;
+    padding: 40px 50px 50px 50px;
     text-align: center;
     h1{
         font-weight: 600;
@@ -68,7 +63,7 @@ main{
         background-color: #5f5f5f;
         color: #FFF;
         height: 48px;
-        border-color: #2c2c2c;
+        border-color: #2c2c2c;        
         &:focus{
             border: #252525;
             box-shadow: 0 0 0 0.25rem #25252540;
@@ -166,7 +161,9 @@ main{
         p{
             font-size: 1.5rem;
         }
-    }
+    }    
+}
+.card-emprestimo{
     .box-valor-desejado{
         text-align: center;
         h2{
@@ -202,7 +199,6 @@ main{
         font-weight: bold;
         font-size: 20px;
     }
-    
 }
 .inputs-pagamentos{
     select{
@@ -219,7 +215,30 @@ main{
     color: #FFF;
     -webkit-text-stroke: 1px #2525257e;
     text-align: center;
+    padding-top: 10%;
+}
+@media only screen and (max-width: 1200px) {
+    .card-login {
+        width: 600px;
+        h1{
+            font-size: 36px;
+        }
+    }
 }
 
+@media only screen and (max-width: 992px) {
+    .card-login {
+        width: 500px;
+        h1{
+            font-size: 36px;
+        }
+    }
+}
+@media only screen and (max-width: 600px) {
+    .card-login {
+        width: 85vw;
+        min-width: 260px;
+    }
+}
 
   
