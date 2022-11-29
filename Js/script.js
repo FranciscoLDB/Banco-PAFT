@@ -156,7 +156,7 @@ async function mostrar_pagamento(){
             <p>R$${valor.value},00</p>
             </div>
             <div class="col-6">
-            <button type="button" class="btn btn-dark" id="btn-pagar">Pagar</button>
+            <button type="button" class="btn btn-dark" id="btn-pagar" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Pagar</button>
             </div>
             </div>`;
     } catch {
