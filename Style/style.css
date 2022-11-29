@@ -105,6 +105,10 @@ body {
   font-size: 18px;
 }
 
+.card-login {
+  width: 500px;
+}
+
 .card-section {
   margin-top: auto;
   padding-top: 30px;
@@ -233,9 +237,6 @@ body {
 }
 
 @media only screen and (max-width: 1200px) {
-  .card-login {
-    width: 500px;
-  }
   .card-login h1 {
     font-size: 36px;
   }
