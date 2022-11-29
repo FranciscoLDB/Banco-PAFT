@@ -239,16 +239,10 @@ body{
 }
 
 @media only screen and (max-width: 991px) {
-    .card-login {
-        width: 500px;
-        h1{
-            font-size: 36px;
-        }
-    }
     .main-login{
         padding-top: 20%;
     }
-    .card-main{
+    .card-section{
         width: 500px;
     }
 }
