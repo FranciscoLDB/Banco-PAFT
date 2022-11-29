@@ -6,7 +6,7 @@
 
 body {
   background-image: url("../images/low-poly-grid-haikei.svg");
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-size: cover;
   width: 100vw;
   height: 100vh;
@@ -250,5 +250,9 @@ body {
   .card-login {
     width: 85vw;
     min-width: 260px;
+  }
+  .card-section {
+    width: 85vw;
+    min-width: 350px;
   }
 }/*# sourceMappingURL=style.css.map */
