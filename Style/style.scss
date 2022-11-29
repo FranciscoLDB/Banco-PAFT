@@ -12,6 +12,11 @@ body{
     height: 100vh;
     position: relative;
 }
+main{
+    h1{
+        padding-top: 10%;
+    }
+}
 .btn-hamburguer{
     position: absolute;
     top: 0;
@@ -162,6 +167,42 @@ body{
             font-size: 1.5rem;
         }
     }
+    .box-valor-desejado{
+        text-align: center;
+        h2{
+            font-weight: bold;
+            font-size: 2rem;
+        }
+        label{
+            color: #279500;
+            font-size: 1.7rem;
+        }
+        input[type=range]{
+            margin: 3px 0;
+            &::-webkit-slider-runnable-track{
+                height: 5px;
+                background: #000000;
+            }
+            &::-webkit-slider-thumb {
+                box-shadow: 0px 0px 0px #000000;
+                height: 20px;
+                width: 20px;
+                background: #000000;
+                margin-top: -7.5px;
+            }
+        }
+    }
+    span{
+        color: #4C4C4C;
+        font-weight: bold;
+        font-size: 18px;
+    }
+    p{
+        color: #252525;
+        font-weight: bold;
+        font-size: 20px;
+    }
+    
 }
 .inputs-pagamentos{
     select{
@@ -179,3 +220,6 @@ body{
     -webkit-text-stroke: 1px #2525257e;
     text-align: center;
 }
+
+
+  
