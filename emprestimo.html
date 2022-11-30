@@ -37,10 +37,26 @@
                     <p id="total-a-pagar">R$2912,48</p>
                 </div>
                 <div class="col-6">
-                    <button type="button" class="btn btn-dark" id="btn-sol-emprestimo">Solicitar</button>
+                    <button type="button" class="btn btn-dark" id="btn-sol-emprestimo" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Solicitar</button>
                 </div>
             </div>
         </section>
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdrop">Emprestimo solicitado com sucesso!</h1>
+                    </div>
+                    <div class="modal-body">
+                        <p>Nossa equipe ja recebeu sua solicitacao de emprestimo</p>
+                        <p>Entraremos em contato assim que tivermos uma resposta</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="window.location.href='./emprestimo.html'">Voltar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     
     <button class="btn-hamburguer" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">

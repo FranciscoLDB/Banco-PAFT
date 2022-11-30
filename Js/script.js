@@ -121,7 +121,7 @@ let mostrar_extrato = function (conta){
     }
 }
 let btnExtrato = document.getElementById('btn-extrato');
-if(!(btnExtrato == null)){
+if(btnExtrato != null){
     btnExtrato.addEventListener('click', mostrar_extrato(contaChico));
 }
 
@@ -141,6 +141,7 @@ async function init_pagamento(){
             reset_pagamento();
         });
         chave.addEventListener('change', reset_pagamento);
+        valor.addEventListener('change', reset_pagamento);
         
         let btnPagar = document.getElementById('btn-pagar');
         btnPagar.addEventListener('click', mostrar_pagamento);
@@ -252,16 +253,20 @@ function atualizar() {
         }
     }
 };
-$(document).ready(() => {
-	$(".input-tel").mask("(99) 99999-9999");
-    $(".input-cpf").mask("999.999.999-99");
-	$(".input-cep").mask("99999-999");
-});
 
+try{
+    $(document).ready(() => {
+        $(".input-tel").mask("(99) 99999-9999");
+        $(".input-cpf").mask("999.999.999-99");
+        $(".input-cep").mask("99999-999");
+    });
+}catch(e){
+    console.log('Erro na inicializacao da mascara ' + e);
+}
+
+// Validacao do cadastro    
 (() => {
-    console.log('execution')
     const forms = document.querySelectorAll('.needs-validation');
-    console.log('forms: '+ forms);
     Array.from(forms).forEach(form => {
         form.addEventListener('submit', event => {
             if(!valida_form()){
@@ -378,40 +383,41 @@ function assert(isTrue){
     }
 }
 
+// Testes
 function rodar_testes(){
     validateTest('TELEFONE OK',() =>{
         assert(valida_telefone('(41)99595-4489'));
         assert(valida_telefone('(41) 99595-4489'));
     });
-    validateTest('TELEFONE NAO OK',() =>{
-        assert(valida_telefone('(41)995-4489'));
-    });
     validateTest('CPF OK',() =>{
         assert(valida_cpf('015.951.118-50'));
     });
-    validateTest('CPF NAO OK',() =>{
-        assert(valida_cpf('115.91.118-0'));
-    });
     validateTest('CEP OK',() =>{
         assert(valida_cep('83325-111'));
-    });
-    validateTest('CEP NAO OK',() =>{
-        assert(valida_cep('03325-111'));
     });
     validateTest('EMAIL OK',() =>{
         assert(valida_email('exemplo@ex.com'));
         assert(valida_email('exemplo@ex.com.br'));
         assert(valida_email('exemplo@gnail.br'));
     });
-    validateTest('EMAIL NAO OK',() =>{
-        assert(valida_email('exemplo@.com'));
-    });
     validateTest('SENHA OK',() =>{
         assert(valida_senha('minhasenha22'));
         assert(valida_senha('bicholoco98'));
         assert(valida_senha('2ardd847uino'));
     });
-    validateTest('SENHA NAO OK',() =>{
+    validateTest('TELEFONE FALHAR',() =>{
+        assert(valida_telefone('(41)995-4489'));
+    });
+    validateTest('CPF FALHAR',() =>{
+        assert(valida_cpf('115.91.118-0'));
+    });
+    validateTest('CEP FALHAR',() =>{
+        assert(valida_cep('03325-111'));
+    });
+    validateTest('EMAIL FALHAR',() =>{
+        assert(valida_email('exemplo@.com'));
+    });
+    validateTest('SENHA FALHAR',() =>{
         assert(valida_senha('minh22'));
         assert(valida_senha('senhaminha'));
     });
