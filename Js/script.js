@@ -271,7 +271,6 @@ $(document).ready(() => {
             }
         }, false)
     })
-    //btnCadastro.addEventListener('click', )
 })()
 
 let btnCadastro = document.getElementById('btn-cadastrar');
