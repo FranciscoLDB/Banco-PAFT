@@ -108,6 +108,17 @@ body {
 .card-login {
   width: 500px;
 }
+.card-login a {
+  text-decoration: underline;
+  color: #252525;
+  font-size: large;
+}
+.card-login button {
+  margin-bottom: 18px;
+}
+.card-login .caixa-input-cadastro {
+  padding-inline: 3px;
+}
 
 .card-section {
   margin-top: auto;
@@ -234,6 +245,30 @@ body {
   -webkit-text-stroke: 1px rgba(37, 37, 37, 0.4941176471);
   text-align: center;
   padding-top: 10%;
+}
+
+.form-cadastro {
+  text-align: start;
+}
+.form-cadastro .input-login::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.63);
+}
+.form-cadastro .input-login:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.63);
+}
+.form-cadastro .input-login::placeholder {
+  color: rgba(255, 255, 255, 0.63);
+}
+.form-cadastro div {
+  margin: 0;
+}
+.form-cadastro > div {
+  margin-bottom: 8px;
+}
+.form-cadastro label {
+  color: #252525;
+  padding: 0;
+  margin: 0;
 }
 
 @media only screen and (max-width: 1200px) {

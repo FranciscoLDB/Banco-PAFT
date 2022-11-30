@@ -243,14 +243,34 @@ window.addEventListener('load', atualizar);
 function atualizar() {
     var largura = window.screen.width;    
     if (largura >= 992) {
-        if(!(btnExtrato == null)){   
+        if(btnExtrato != null){   
             tableHead.innerHTML = theadMaior;
             tableBody.innerHTML = tbodyMaior;
         }
     } else {
-        if(!(btnExtrato == null)){
+        if(btnExtrato != null){
             tableHead.innerHTML = theadMenor;
             tableBody.innerHTML = tbodyMenor;
         }
     }
 };
+
+(() => {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    const forms = document.querySelectorAll('.needs-validation')  
+    // Loop over them and prevent submission
+    Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+            }
+            form.classList.add('was-validated')
+        }, false)
+    })
+})()
+
+$(document).ready(() => {
+	$(".input-tel").mask("(99) 99999-9999");
+	$(".input-cep").mask("99999-999");
+});

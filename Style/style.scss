@@ -100,6 +100,17 @@ body{
 }
 .card-login{
     width: 500px;
+    a{
+        text-decoration: underline;
+        color: #252525;
+        font-size: large;
+    }
+    button{
+        margin-bottom: 18px;
+    }
+    .caixa-input-cadastro{
+        padding-inline: 3px;
+    }
 }
 .card-section{
     margin-top: auto;
@@ -221,13 +232,31 @@ body{
         min-width: 150px;
     }
 }
-
 .titulo-section{
     font-size: 32px;
     color: #FFF;
     -webkit-text-stroke: 1px #2525257e;
     text-align: center;
     padding-top: 10%;
+}
+.form-cadastro{
+    text-align: start;
+    .input-login{
+        &::placeholder{
+            color: rgba(255, 255, 255, 0.63);
+        }
+    }
+    div{
+        margin: 0;
+    }
+    &>div{
+        margin-bottom: 8px;
+    }
+    label{
+        color: #252525;
+        padding: 0;
+        margin: 0;
+    }
 }
 @media only screen and (max-width: 1200px) {
     .card-login {
