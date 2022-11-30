@@ -19,29 +19,43 @@
             <form class="row g-3 needs-validation form-cadastro" novalidate>
                 <div class="col-lg-6">
                     <label for="validationServer01" class="form-label">Nome</label>
-                    <input type="text" class="form-control input-login" id="validationServer01" placeholder="Nome" required>
+                    <input type="text" class="form-control input-login input-nome" id="validationServer01" placeholder="Nome" required>
                 </div>
                 <div class="col-lg-6">
                     <label for="validationServer02" class="form-label">Sobrenome</label>
-                    <input type="text" class="form-control input-login" id="validationServer02" placeholder="Sobrenome" required>
+                    <input type="text" class="form-control input-login input-sobrenome" id="validationServer02" placeholder="Sobrenome" required>
                 </div>
-                <div class="col-lg-5">
+                <div class="col-lg-6">
                     <label for="validationServer01" class="form-label">Telefone</label>
                     <input type="tel" class="form-control input-login input-tel" id="validationServer01" maxlength="14" placeholder="Numero de telefone" required>
                     <div id="validationServer03Feedback" class="invalid-feedback">
                         Por favor inserir um telefone valido.
                     </div>
                 </div>
+                <div class="col-lg-6">
+                    <label for="validationServer01" class="form-label">CPF</label>
+                    <input type="text" class="form-control input-login input-cpf" id="validationServer01" maxlength="14" placeholder="Numero de telefone" required>
+                    <div id="validationServer03Feedback" class="invalid-feedback">
+                        Por favor inserir um CPF valido.
+                    </div>
+                </div>
                 <div class="col-lg-7">
                     <label for="validationServer02" class="form-label">Email</label>
-                    <input type="text" class="form-control input-login" id="validationServer02" placeholder="exemplo@email.com" required>
+                    <input type="text" class="form-control input-login input-email" id="validationServer02" placeholder="exemplo@email.com" required>
                     <div id="validationServer03Feedback" class="invalid-feedback">
                         Por favor inserir um endereco de email valido.
                     </div>
                 </div>
+                <div class="col-lg-5">
+                    <label for="validationServer01" class="form-label">Senha</label>
+                    <input type="text" class="form-control input-login input-senha" id="validationServer01" maxlength="20" placeholder="Senha" required>
+                    <div id="validationServer03Feedback" class="invalid-feedback">
+                        A senha deve ter no minimo 8 caracteres.
+                    </div>
+                </div>
                 <div class="col-lg-4">
                     <label for="validationServer03" class="form-label">Cidade</label>
-                    <input type="text" class="form-control input-login" id="validationServer03" aria-describedby="validationServer03Feedback" placeholder="Cidade" required>
+                    <input type="text" class="form-control input-login input-cidade" id="validationServer03" aria-describedby="validationServer03Feedback" placeholder="Cidade" required>
                     <div id="validationServer03Feedback" class="invalid-feedback">
                         Por favor inserir uma cidade valida.
                     </div>
@@ -101,7 +115,7 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <button class="btn btn-dark" type="submit">Cadastrar</button>
+                    <button class="btn btn-dark" id="btn-cadastrar" type="submit">Cadastrar</button>
                 </div>
               </form>
         </section>

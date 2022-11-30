@@ -258,6 +258,25 @@ body{
         margin: 0;
     }
 }
+.input-valido{
+    border-color: #27c418 !important;
+    border-width: 2px !important;
+    padding-right: calc(1.5em + 0.75rem) !important;
+    &:focus{
+        border: #43831f !important;
+        box-shadow: 0 0 0 0.25rem #1bc93840 !important;
+    }
+}
+.input-invalido{
+    border-color: #dc3545 !important;
+    border-width: 2px !important;
+    padding-right: calc(1.5em + 0.75rem) !important;
+    &:focus{
+        border: #bd3f36 !important;
+        box-shadow: 0 0 0 0.25rem #bd292940 !important;
+    }
+}
+
 @media only screen and (max-width: 1200px) {
     .card-login {
         h1{

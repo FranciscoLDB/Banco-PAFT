@@ -57,8 +57,7 @@ class Conta{
 }
 const contaChico = new Conta('Chico', 2500, 'NuBank');
 const contaJorge = new Conta('Jorge', 1200, 'Inter');
-const chavesPix = {
-};
+const chavesPix = {};
 contaChico.pix = 10101010;
 chavesPix[10101010] = contaChico;
 contaJorge.pix = 12345678;
@@ -239,7 +238,6 @@ init_emprestimo();
 
 window.addEventListener('resize', atualizar);
 window.addEventListener('load', atualizar);
-
 function atualizar() {
     var largura = window.screen.width;    
     if (largura >= 992) {
@@ -254,23 +252,169 @@ function atualizar() {
         }
     }
 };
-
-(() => {
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    const forms = document.querySelectorAll('.needs-validation')  
-    // Loop over them and prevent submission
-    Array.from(forms).forEach(form => {
-    form.addEventListener('submit', event => {
-            if (!form.checkValidity()) {
-                event.preventDefault()
-                event.stopPropagation()
-            }
-            form.classList.add('was-validated')
-        }, false)
-    })
-})()
-
 $(document).ready(() => {
 	$(".input-tel").mask("(99) 99999-9999");
+    $(".input-cpf").mask("999.999.999-99");
 	$(".input-cep").mask("99999-999");
 });
+
+(() => {
+    console.log('execution')
+    const forms = document.querySelectorAll('.needs-validation');
+    console.log('forms: '+ forms);
+    Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+            if(!valida_form()){
+                console.log('event' + event);
+                event.preventDefault();
+                event.stopPropagation();
+            }
+        }, false)
+    })
+    //btnCadastro.addEventListener('click', )
+})()
+
+let btnCadastro = document.getElementById('btn-cadastrar');
+let formNome = document.querySelector('.input-nome');
+let formSobreN = document.querySelector('.input-sobrenome');
+let formTel = document.querySelector('.input-tel');
+let formCPF = document.querySelector('.input-cpf');
+let formEmail = document.querySelector('.input-email');
+let formSenha = document.querySelector('.input-senha');
+let formCidade = document.querySelector('.input-cidade');
+let formCEP = document.querySelector('.input-cep');
+
+function valida_text(text){
+    return (/^[a-záàâãéèêíïóôõöúçñ ]+$/i.test(text));
+}
+function valida_telefone(tel){
+    return (/^(?:\()[0-9]{2}(?:\))\s?[0-9]{4,5}(?:-)[0-9]{4}$/.test(tel));
+}
+function valida_cpf(cpf){
+    return (/^[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}$/.test(cpf));
+}
+function valida_cep(cep){
+    return (/^[1-9][0-9]{4}-[0-9]{3}$/.test(cep));
+}
+function valida_email(email){
+    return (/\S+@\S+\.\S+/.test(email));
+}
+function valida_senha(senha){
+    return (/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(senha));
+}
+
+function valida_form(){
+    let valido = true;
+    if(valida_text(formNome.value)){
+        formNome.classList.replace('input-invalido', 'input-valido');
+        formNome.classList.add('input-valido');
+    } else {
+        formNome.classList.add('input-invalido');
+        valido = false;
+    }
+    if(valida_text(formSobreN.value)){
+        formSobreN.classList.replace('input-invalido', 'input-valido');
+        formSobreN.classList.add('input-valido');
+    } else {
+        formSobreN.classList.add('input-invalido');
+        valido = false;
+    }
+    if(valida_telefone(formTel.value)){
+        formTel.classList.replace('input-invalido', 'input-valido');
+        formTel.classList.add('input-valido');
+    } else {
+        formTel.classList.add('input-invalido');
+        valido = false;
+    }
+    if(valida_cpf(formCPF.value)){
+        formCPF.classList.replace('input-invalido', 'input-valido');
+        formCPF.classList.add('input-valido');
+    } else {
+        formCPF.classList.add('input-invalido');
+        valido = false;
+    }
+    if(valida_email(formEmail.value)){
+        formEmail.classList.replace('input-invalido', 'input-valido');
+        formEmail.classList.add('input-valido');
+    } else {
+        formEmail.classList.add('input-invalido');
+        valido = false;
+    }
+    if(valida_senha(formSenha.value)){
+        formSenha.classList.replace('input-invalido', 'input-valido');
+        formSenha.classList.add('input-valido');
+    } else {
+        formSenha.classList.add('input-invalido');
+        valido = false;
+    }
+    if(valida_text(formCidade.value)){
+        formCidade.classList.replace('input-invalido', 'input-valido');
+        formCidade.classList.add('input-valido');
+    } else {
+        formCidade.classList.add('input-invalido');
+        valido = false;
+    }
+    if(valida_cep(formCEP.value)){
+        formCEP.classList.replace('input-invalido', 'input-valido');
+        formCEP.classList.add('input-valido');
+    } else {
+        formCEP.classList.add('input-invalido');
+        valido = false;
+    }
+    return valido;
+}
+
+function validateTest(desc,fn){
+    try {
+        fn();
+        console.log("Test sucess :"+desc);
+    } catch (error) {
+        console.log("Test failure:"+desc);
+        console.assert(error);
+    }
+}
+function assert(isTrue){
+    if(!isTrue){
+        throw new Error();
+    }
+}
+
+function rodar_testes(){
+    validateTest('TELEFONE OK',() =>{
+        assert(valida_telefone('(41)99595-4489'));
+        assert(valida_telefone('(41) 99595-4489'));
+    });
+    validateTest('TELEFONE NAO OK',() =>{
+        assert(valida_telefone('(41)995-4489'));
+    });
+    validateTest('CPF OK',() =>{
+        assert(valida_cpf('015.951.118-50'));
+    });
+    validateTest('CPF NAO OK',() =>{
+        assert(valida_cpf('115.91.118-0'));
+    });
+    validateTest('CEP OK',() =>{
+        assert(valida_cep('83325-111'));
+    });
+    validateTest('CEP NAO OK',() =>{
+        assert(valida_cep('03325-111'));
+    });
+    validateTest('EMAIL OK',() =>{
+        assert(valida_email('exemplo@ex.com'));
+        assert(valida_email('exemplo@ex.com.br'));
+        assert(valida_email('exemplo@gnail.br'));
+    });
+    validateTest('EMAIL NAO OK',() =>{
+        assert(valida_email('exemplo@.com'));
+    });
+    validateTest('SENHA OK',() =>{
+        assert(valida_senha('minhasenha22'));
+        assert(valida_senha('bicholoco98'));
+        assert(valida_senha('2ardd847uino'));
+    });
+    validateTest('SENHA NAO OK',() =>{
+        assert(valida_senha('minh22'));
+        assert(valida_senha('senhaminha'));
+    });
+}
+rodar_testes();
